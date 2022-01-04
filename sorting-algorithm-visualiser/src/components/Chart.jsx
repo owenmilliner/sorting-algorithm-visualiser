@@ -3,12 +3,13 @@ import Bar from './Bar';
 
 const Chart = () => {
   const [dataSet, setDataSet] = useState([]);
+  let key = 0;
 
   useEffect(() => {
     const temp = [];
 
     for (let i = 0; i < 100; i++) {
-      temp.push(Math.floor(Math.random() * (101 - 1) + 1));
+      temp.push(Math.floor((Math.random() * (100 - 1) + 1) * 2) / 2);
     }
     setDataSet([...temp]);
   }, []);
@@ -16,7 +17,9 @@ const Chart = () => {
   return (
     <div className='chart'>
       {dataSet.map((value) => {
-        return <Bar value={value} />;
+        key++;
+        console.log(value);
+        return <Bar value={value} key={key} />;
       })}
     </div>
   );
