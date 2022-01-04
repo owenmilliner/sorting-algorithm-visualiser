@@ -1,5 +1,9 @@
-const Bar = () => {
-  return <div class='bar'></div>;
+const Bar = ({ value }) => {
+  return (
+    <div className='barParent'>
+      <div className='barChild' style={{ height: `${value}%` }}></div>
+    </div>
+  );
 };
 
 export default Bar;

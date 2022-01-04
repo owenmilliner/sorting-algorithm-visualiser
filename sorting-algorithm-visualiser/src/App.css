@@ -2,10 +2,20 @@
   text-align: center;
 }
 
-.bar {
-  background-color: blue;
-  width: 50px;
+.chart {
+  width: auto;
   height: 300px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.barParent {
+  width: 10px;
+  height: 100%;
   display: inline-block;
-  margin: 5px;
+  margin: 1px;
+}
+
+.barChild {
+  background-color: rgb(98, 77, 147);
+  width: auto;
 }
