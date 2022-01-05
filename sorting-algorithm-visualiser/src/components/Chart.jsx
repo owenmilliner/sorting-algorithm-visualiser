@@ -15,9 +15,25 @@ const Chart = () => {
     setDataSet([...temp]);
   }, []);
 
+  const animateSort = (swappedItemsInOrder) => {
+    swappedItemsInOrder.forEach((item) => {});
+    /*
+    for each swap in the array
+      set timeout - to slow down the animation
+        current swap = swap[index]
+        document.getElement....(using the column number), change the classname to 'animate' colour change
+    */
+  };
+
+  const visualiseSort = () => {
+    const swapsInOrder = BubbleSort(dataSet); //return array of swaps in order.
+    console.log(swapsInOrder);
+    // animateSort(swapsInOrder);
+  };
+
   return (
     <div className='ChartParent'>
-      <button onClick={() => BubbleSort(dataSet)}>Sort</button>
+      <button onClick={() => visualiseSort()}>Sort</button>
       <div className='chart'>
         {dataSet.map((value) => {
           key++;

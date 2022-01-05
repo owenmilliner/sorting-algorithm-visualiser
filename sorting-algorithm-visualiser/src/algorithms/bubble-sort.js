@@ -1,17 +1,22 @@
 const BubbleSort = (dataSet) => {
   const testDataSet = [...dataSet];
-
-  console.log(testDataSet);
+  const itemIndexesInOrder = [];
+  const swappedIndexesInOrder = [];
 
   for (let i = 0; i < testDataSet.length - 1; i++) {
     for (let j = 0; j < testDataSet.length - 1; j++) {
+      itemIndexesInOrder.push([j, j + 1]);
       if (testDataSet[j] > testDataSet[j + 1]) {
+        swappedIndexesInOrder.push([j, j + 1]);
         swap(testDataSet, j, j + 1);
       }
     }
   }
 
-  console.log(testDataSet);
+  return {
+    comparisons: [...itemIndexesInOrder],
+    swaps: [...swappedIndexesInOrder],
+  };
 };
 
 const swap = (testDataSet, indexI, indexJ) => {
