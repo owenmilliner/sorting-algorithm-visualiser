@@ -2,10 +2,22 @@
   text-align: center;
 }
 
+h1 {
+  margin: 0;
+}
+
+header {
+  background-color: rgb(190, 190, 190);
+}
+
+.buttonClass {
+  background-color: rgb(190, 190, 190);
+}
+
 .chart {
   width: auto;
   height: 600px;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgb(255, 255, 255);
 }
 
 .barParent {
@@ -13,6 +25,7 @@
   height: 100%;
   display: inline-block;
   margin: 1px;
+  margin-top: 0;
 }
 
 .barChild {

@@ -15,12 +15,12 @@ const Chart = () => {
     setDataSet([...temp]);
   }, []);
 
-  const animateSort = (sortActions) => {
+  const animateSort = (sortIndexes) => {
     const tempDataSet = [...dataSet];
 
-    for (let i = 0; i <= sortActions.swaps.length - 1; i++) {
-      const columnOne = sortActions.swaps[i][0];
-      const columnTwo = sortActions.swaps[i][1];
+    for (let i = 0; i <= sortIndexes.length - 1; i++) {
+      const columnOne = sortIndexes[i][0];
+      const columnTwo = sortIndexes[i][1];
 
       setTimeout(() => {
         let previousColumnOne = document.getElementById(
@@ -46,7 +46,7 @@ const Chart = () => {
               node.className = 'barChild';
             }
           });
-        }, i * 100);
+        }, i * 50);
 
         currentColumnOne.className = 'column-active';
         currentColumnTwo.className = 'column-active';
@@ -56,21 +56,28 @@ const Chart = () => {
         tempDataSet[columnOne - 1] = tempDataSet[columnTwo - 1];
         tempDataSet[columnTwo - 1] = temp;
         setDataSet([...tempDataSet]);
+        // End Swap Bars
 
-        previousColumnOne.className = 'barChild';
-        previousColumnTwo.className = 'barChild';
+        try {
+          previousColumnOne.className = 'barChild';
+          previousColumnTwo.className = 'barChild';
+        } catch (error) {
+          // console.log(error);
+        }
       }, 10 * i);
     }
   };
 
   const visualiseSort = () => {
-    const sortActions = BubbleSort(dataSet); //return array of swaps in order.
-    animateSort(sortActions);
+    const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
+    animateSort(sortIndexes);
   };
 
   return (
     <div className='ChartParent'>
-      <button onClick={() => visualiseSort()}>Sort</button>
+      <div className='buttonClass'>
+        <button onClick={() => visualiseSort()}>Sort</button>
+      </div>
       <div className='chart'>
         {dataSet.map((value) => {
           key++;
