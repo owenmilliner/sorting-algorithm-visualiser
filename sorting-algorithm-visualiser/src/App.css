@@ -19,3 +19,7 @@
   background-color: rgb(98, 77, 147);
   width: auto;
 }
+
+button {
+  margin-bottom: 10px;
+}

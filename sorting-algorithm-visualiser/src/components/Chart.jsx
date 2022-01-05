@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Bar from './Bar';
+import BubbleSort from '../algorithms/bubble-sort';
 
 const Chart = () => {
   const [dataSet, setDataSet] = useState([]);
@@ -15,12 +16,14 @@ const Chart = () => {
   }, []);
 
   return (
-    <div className='chart'>
-      {dataSet.map((value) => {
-        key++;
-        console.log(value);
-        return <Bar value={value} key={key} />;
-      })}
+    <div className='ChartParent'>
+      <button onClick={() => BubbleSort(dataSet)}>Sort</button>
+      <div className='chart'>
+        {dataSet.map((value) => {
+          key++;
+          return <Bar value={value} key={key} />;
+        })}
+      </div>
     </div>
   );
 };
