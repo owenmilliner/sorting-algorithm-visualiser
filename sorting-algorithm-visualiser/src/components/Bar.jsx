@@ -1,7 +1,11 @@
-const Bar = ({ value }) => {
+const Bar = ({ value, column }) => {
   return (
     <div className='barParent'>
-      <div className='barChild' style={{ height: `${value}%` }}></div>
+      <div
+        className='barChild'
+        id={`column-${column}`}
+        style={{ height: `${value}%` }}
+      ></div>
     </div>
   );
 };
