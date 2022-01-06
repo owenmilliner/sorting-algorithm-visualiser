@@ -17,6 +17,7 @@ const Chart = () => {
 
   const animateSort = (sortIndexes) => {
     const tempDataSet = [...dataSet];
+    const bugFixTimeoutIds = [];
 
     for (let i = 0; i <= sortIndexes.length - 1; i++) {
       const columnOne = sortIndexes[i][0];
@@ -39,14 +40,16 @@ const Chart = () => {
         );
 
         // Fixes bug where column does not change back after made active.
-        setTimeout(() => {
-          let nodeList = document.querySelectorAll('[class="column-active"]');
-          nodeList.forEach((node) => {
-            if (/[\d]/.test(node.id)) {
-              node.className = 'barChild';
-            }
-          });
-        }, i * 50);
+        bugFixTimeoutIds.push(
+          setTimeout(() => {
+            let nodeList = document.querySelectorAll('[class="column-active"]');
+            nodeList.forEach((node) => {
+              if (/[\d]/.test(node.id)) {
+                node.className = 'barChild';
+              }
+            });
+          }, i * 20)
+        );
 
         currentColumnOne.className = 'column-active';
         currentColumnTwo.className = 'column-active';
@@ -64,19 +67,36 @@ const Chart = () => {
         } catch (error) {
           // console.log(error);
         }
+
+        if (i === sortIndexes.length - 1) {
+          bugFixTimeoutIds.forEach((id) => {
+            clearTimeout(id);
+          });
+          return finishSort();
+        }
       }, 10 * i);
     }
   };
 
-  const visualiseSort = () => {
-    const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
-    animateSort(sortIndexes);
+  const finishSort = () => {
+    for (let i = 1; i <= 100; i++) {
+      setTimeout(() => {
+        document.getElementById(`column-${i}`).className = 'column-active';
+      }, 10 * i);
+    }
   };
 
   return (
     <div className='ChartParent'>
       <div className='buttonClass'>
-        <button onClick={() => visualiseSort()}>Sort</button>
+        <button
+          onClick={() => {
+            const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
+            animateSort(sortIndexes);
+          }}
+        >
+          Sort
+        </button>
       </div>
       <div className='chart'>
         {dataSet.map((value) => {
