@@ -4,22 +4,83 @@
   color: white;
 }
 
+body {
+  max-width: 1500px;
+  margin: auto;
+}
+
 .header {
   background-color: #2d3142;
-  padding-top: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 580px auto 580px;
+}
+
+.header__link {
+  text-decoration: none;
+  color: white;
 }
 
 .header__text {
-  margin: 0;
+  margin: auto;
+}
+
+.header__element {
+  display: inline;
+  list-style: none;
+}
+
+.header__dataOptions {
+  padding: 0;
+}
+
+.header__sortOptions {
+  padding: 0;
+}
+
+.header__dataOptions__element {
+  padding: 20px;
+  display: inline;
+}
+
+.header__sortOptions__element--status-inactive {
+  padding: 20px;
+  display: inline;
+}
+
+.header__sortOptions__element--status-active {
+  padding: 20px;
+  display: inline;
+  color: #ffb600;
 }
 
 .chart__header {
   background-color: #2d3142;
 }
 
-.chart__header__button {
+.chart__header__button--status-enabled {
   margin-bottom: 10px;
-  margin-top: 5px;
+  background-color: white;
+  border: none;
+  color: #2d3142;
+  padding: 10px 20px;
+  border-radius: 3px;
+}
+
+.chart__header__button--status-disabled {
+  margin-bottom: 10px;
+  background-color: #ffb600;
+  border: none;
+  color: #2d3142;
+  padding: 10px 20px;
+  border-radius: 3px;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.chart__header__button--status-enabled:hover {
+  background-color: #ffb600;
+  color: white;
 }
 
 .chart__display {
@@ -44,4 +105,9 @@
 .bar--status-active {
   background-color: #ffb600;
   width: auto;
+}
+
+.comparison__text {
+  color: black;
+  font-weight: bold;
 }

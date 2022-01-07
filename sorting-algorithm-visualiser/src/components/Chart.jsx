@@ -4,6 +4,7 @@ import BubbleSort from '../algorithms/bubble-sort';
 
 const Chart = () => {
   const [dataSet, setDataSet] = useState([]);
+  const [isSorting, setIsSorting] = useState(false);
   let key = 0;
 
   useEffect(() => {
@@ -92,10 +93,16 @@ const Chart = () => {
     <div className='chart'>
       <div className='chart__header'>
         <button
-          className='chart__header__button'
+          id='chart__button'
+          className='chart__header__button--status-enabled'
           onClick={() => {
-            const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
-            animateSort(sortIndexes);
+            if (!isSorting) {
+              document.getElementById('chart__button').className =
+                'chart__header__button--status-disabled';
+              const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
+              animateSort(sortIndexes);
+              setIsSorting(true);
+            }
           }}
         >
           Sort
