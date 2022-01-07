@@ -1,7 +1,7 @@
 const Header = () => {
   return (
-    <header>
-      <h1>Sorting Algorithm Visualiser</h1>
+    <header className='header'>
+      <h1 className='header__text'>Sorting Algorithm Visualiser</h1>
     </header>
   );
 };

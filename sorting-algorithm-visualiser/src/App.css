@@ -1,26 +1,34 @@
 .App {
   text-align: center;
+  font-family: 'Josefin Slab', serif;
+  color: white;
 }
 
-h1 {
+.header {
+  background-color: #2d3142;
+  padding-top: 10px;
+}
+
+.header__text {
   margin: 0;
 }
 
-header {
-  background-color: rgb(190, 190, 190);
+.chart__header {
+  background-color: #2d3142;
 }
 
-.buttonClass {
-  background-color: rgb(190, 190, 190);
+.chart__header__button {
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
-.chart {
+.chart__display {
   width: auto;
   height: 600px;
   background-color: rgb(255, 255, 255);
 }
 
-.barParent {
+.bar {
   width: 10px;
   height: 100%;
   display: inline-block;
@@ -28,16 +36,12 @@ header {
   margin-top: 0;
 }
 
-.barChild {
-  background-color: rgb(98, 77, 147);
+.bar--status-inactive {
+  background-color: #b23a48;
   width: auto;
 }
 
-.column-active {
-  background-color: rgb(169, 123, 86);
+.bar--status-active {
+  background-color: #ffb600;
   width: auto;
-}
-
-button {
-  margin-bottom: 10px;
 }

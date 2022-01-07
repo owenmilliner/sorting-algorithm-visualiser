@@ -1,8 +1,8 @@
 const Bar = ({ value, column }) => {
   return (
-    <div className='barParent'>
+    <div className='bar bar--mod'>
       <div
-        className='barChild'
+        className='bar--status-inactive'
         id={`column-${column}`}
         style={{ height: `${value}%` }}
       ></div>

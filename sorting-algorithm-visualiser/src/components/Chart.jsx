@@ -42,17 +42,19 @@ const Chart = () => {
         // Fixes bug where column does not change back after made active.
         bugFixTimeoutIds.push(
           setTimeout(() => {
-            let nodeList = document.querySelectorAll('[class="column-active"]');
+            let nodeList = document.querySelectorAll(
+              '[class="bar--status-active"]'
+            );
             nodeList.forEach((node) => {
               if (/[\d]/.test(node.id)) {
-                node.className = 'barChild';
+                node.className = 'bar--status-inactive';
               }
             });
           }, i * 20)
         );
 
-        currentColumnOne.className = 'column-active';
-        currentColumnTwo.className = 'column-active';
+        currentColumnOne.className = 'bar--status-active';
+        currentColumnTwo.className = 'bar--status-active';
 
         // Swap Bars
         const temp = tempDataSet[columnOne - 1];
@@ -62,8 +64,8 @@ const Chart = () => {
         // End Swap Bars
 
         try {
-          previousColumnOne.className = 'barChild';
-          previousColumnTwo.className = 'barChild';
+          previousColumnOne.className = 'bar--status-inactive';
+          previousColumnTwo.className = 'bar--status-inactive';
         } catch (error) {
           // console.log(error);
         }
@@ -81,15 +83,16 @@ const Chart = () => {
   const finishSort = () => {
     for (let i = 1; i <= 100; i++) {
       setTimeout(() => {
-        document.getElementById(`column-${i}`).className = 'column-active';
+        document.getElementById(`column-${i}`).className = 'bar--status-active';
       }, 10 * i);
     }
   };
 
   return (
-    <div className='ChartParent'>
-      <div className='buttonClass'>
+    <div className='chart'>
+      <div className='chart__header'>
         <button
+          className='chart__header__button'
           onClick={() => {
             const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
             animateSort(sortIndexes);
@@ -98,7 +101,7 @@ const Chart = () => {
           Sort
         </button>
       </div>
-      <div className='chart'>
+      <div className='chart__display'>
         {dataSet.map((value) => {
           key++;
           return <Bar value={value} key={key} column={key} />;
