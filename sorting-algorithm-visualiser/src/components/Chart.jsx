@@ -6,10 +6,9 @@ const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState(0);
   let key = 0;
+  let startTime = 0;
 
   const animateSort = (sortIndexes) => {
-    setTimeElapsed(performance.now());
-    console.log(timeElapsed);
     const tempDataSet = [...dataSet];
     const bugFixTimeoutIds = [];
 
@@ -81,7 +80,7 @@ const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
       }, 10 * i);
     }
     setIsSorting(false);
-    setTimeElapsed(Math.floor((performance.now() - timeElapsed) / 1000));
+    setTimeElapsed(Math.floor((performance.now() - startTime) / 1000));
   };
 
   return (
@@ -93,6 +92,7 @@ const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
           onClick={() => {
             if (!isSorting) {
               setIsSorting(true);
+              startTime = performance.now();
               document.getElementById('chart__button').className =
                 'chart__header__button--status-disabled';
               const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
