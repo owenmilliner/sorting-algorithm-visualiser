@@ -5,6 +5,7 @@ const SingleVisualisation = ({
   setDataSet,
   isSorting,
   setIsSorting,
+  currentAlgorithm,
 }) => {
   return (
     <Chart
@@ -13,6 +14,7 @@ const SingleVisualisation = ({
       setDataSet={setDataSet}
       isSorting={isSorting}
       setIsSorting={setIsSorting}
+      currentAlgorithm={currentAlgorithm}
     />
   );
 };

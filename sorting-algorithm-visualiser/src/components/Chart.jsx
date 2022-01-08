@@ -3,8 +3,13 @@ import Bar from './Bar';
 import BubbleSort from '../algorithms/bubble-sort';
 import QuickSort from '../algorithms/quick-sort';
 
-const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
-  const [isCompleted, setIsCompleted] = useState(false);
+const Chart = ({
+  dataSet,
+  setDataSet,
+  isSorting,
+  setIsSorting,
+  currentAlgorithm,
+}) => {
   const [timeElapsed, setTimeElapsed] = useState(0);
   let key = 0;
   let startTime = 0;
@@ -96,7 +101,10 @@ const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
               startTime = performance.now();
               document.getElementById('chart__button').className =
                 'chart__header__button--status-disabled';
-              const sortIndexes = QuickSort(dataSet); //return array of swaps in order.
+              const sortIndexes =
+                currentAlgorithm === 'bubble'
+                  ? BubbleSort(dataSet)
+                  : QuickSort(dataSet); //return array of swaps in order.
               animateSort(sortIndexes);
             } else {
               // console.log(

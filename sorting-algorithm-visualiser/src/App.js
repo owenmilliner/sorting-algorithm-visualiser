@@ -9,6 +9,7 @@ function App() {
   const [dataSet, setDataSet] = useState([]);
   const [dataRefresh, setDataRefresh] = useState(false);
   const [isSorting, setIsSorting] = useState(false);
+  const [currentAlgorithm, setCurrentAlgorithm] = useState('bubble');
 
   useEffect(() => {
     const temp = [];
@@ -30,6 +31,7 @@ function App() {
           dataRefresh={dataRefresh}
           setDataRefresh={setDataRefresh}
           isSorting={isSorting}
+          setCurrentAlgorithm={setCurrentAlgorithm}
         />
         <Routes>
           <Route
@@ -40,6 +42,7 @@ function App() {
                 setDataSet={setDataSet}
                 isSorting={isSorting}
                 setIsSorting={setIsSorting}
+                currentAlgorithm={currentAlgorithm}
               />
             }
           />

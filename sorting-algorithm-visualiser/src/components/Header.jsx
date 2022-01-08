@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 
-const Header = ({ dataRefresh, setDataRefresh, isSorting }) => {
+const Header = ({
+  dataRefresh,
+  setDataRefresh,
+  isSorting,
+  setCurrentAlgorithm,
+}) => {
   const handleDataGeneration = () => {
     if (!isSorting) {
       setDataRefresh(!dataRefresh);
@@ -11,6 +16,15 @@ const Header = ({ dataRefresh, setDataRefresh, isSorting }) => {
           'bar--status-inactive';
       }
     }
+  };
+
+  const handleAlgorithmSelection = (algorithm) => {
+    setCurrentAlgorithm(algorithm);
+    document.getElementsByClassName(
+      'header__sortOptions__element--status-active'
+    )[0].className = 'header__sortOptions__element--status-inactive';
+    document.getElementById(`algorithm__${algorithm}`).className =
+      'header__sortOptions__element--status-active';
   };
 
   return (
@@ -32,19 +46,39 @@ const Header = ({ dataRefresh, setDataRefresh, isSorting }) => {
         </h1>
       </Link>
       <ul className='header__element header__sortOptions'>
-        <li className='header__sortOptions__element--status-active'>
+        <li
+          id='algorithm__bubble'
+          className='header__sortOptions__element--status-active'
+          onClick={() => handleAlgorithmSelection('bubble')}
+        >
           Bubble Sort
         </li>
-        <li className='header__sortOptions__element--status-inactive'>
+        <li
+          id='algorithm__quick'
+          className='header__sortOptions__element--status-inactive'
+          onClick={() => handleAlgorithmSelection('quick')}
+        >
           Quick Sort
         </li>
-        <li className='header__sortOptions__element--status-inactive'>
+        <li
+          id='algorithm__merge'
+          className='header__sortOptions__element--status-inactive'
+          onClick={() => handleAlgorithmSelection('merge')}
+        >
           Merge Sort
         </li>
-        <li className='header__sortOptions__element--status-inactive'>
+        <li
+          id='algorithm__heap'
+          className='header__sortOptions__element--status-inactive'
+          onClick={() => handleAlgorithmSelection('heap')}
+        >
           Heap Sort
         </li>
-        <li className='header__sortOptions__element--status-inactive'>
+        <li
+          id='algorithm__insertion'
+          className='header__sortOptions__element--status-inactive'
+          onClick={() => handleAlgorithmSelection('insertion')}
+        >
           Insertion Sort
         </li>
       </ul>
