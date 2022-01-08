@@ -22,10 +22,8 @@ const Header = ({ dataRefresh, setDataRefresh, isSorting }) => {
         >
           Generate New Data Set
         </li>
-        <Link to='/comparison' className='header__link'>
-          <li className='header__dataOptions__element'>
-            Algorithm Comparisons
-          </li>
+        <Link to='/summaries' className='header__link'>
+          <li className='header__dataOptions__element'>Algorithm Summaries</li>
         </Link>
       </ul>
       <Link to='/' className='header__link'>

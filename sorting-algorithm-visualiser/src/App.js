@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SingleVisualisation from './components/SingleVisualisation';
-import ComparisonVisualisation from './components/ComparisonVisualisation';
+import Summaries from './components/Summaries';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
               />
             }
           />
-          <Route path='/comparison' element={<ComparisonVisualisation />} />
+          <Route path='/summaries' element={<Summaries />} />
         </Routes>
       </div>
     </BrowserRouter>
