@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Bar from './Bar';
 import BubbleSort from '../algorithms/bubble-sort';
+import QuickSort from '../algorithms/quick-sort';
 
 const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
   const [isCompleted, setIsCompleted] = useState(false);
@@ -43,7 +44,7 @@ const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
                 node.className = 'bar--status-inactive';
               }
             });
-          }, i * 20)
+          }, i * 10)
         );
 
         currentColumnOne.className = 'bar--status-active';
@@ -95,7 +96,7 @@ const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
               startTime = performance.now();
               document.getElementById('chart__button').className =
                 'chart__header__button--status-disabled';
-              const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
+              const sortIndexes = QuickSort(dataSet); //return array of swaps in order.
               animateSort(sortIndexes);
             } else {
               // console.log(
