@@ -2,21 +2,14 @@ import { useEffect, useState } from 'react';
 import Bar from './Bar';
 import BubbleSort from '../algorithms/bubble-sort';
 
-const Chart = () => {
-  const [dataSet, setDataSet] = useState([]);
-  const [isSorting, setIsSorting] = useState(false);
+const Chart = ({ dataSet, setDataSet, isSorting, setIsSorting }) => {
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [timeElapsed, setTimeElapsed] = useState(0);
   let key = 0;
 
-  useEffect(() => {
-    const temp = [];
-
-    for (let i = 0; i < 100; i++) {
-      temp.push(Math.floor((Math.random() * (100 - 1) + 1) * 2) / 2);
-    }
-    setDataSet([...temp]);
-  }, []);
-
   const animateSort = (sortIndexes) => {
+    setTimeElapsed(performance.now());
+    console.log(timeElapsed);
     const tempDataSet = [...dataSet];
     const bugFixTimeoutIds = [];
 
@@ -87,6 +80,8 @@ const Chart = () => {
         document.getElementById(`column-${i}`).className = 'bar--status-active';
       }, 10 * i);
     }
+    setIsSorting(false);
+    setTimeElapsed(Math.floor((performance.now() - timeElapsed) / 1000));
   };
 
   return (
@@ -94,19 +89,27 @@ const Chart = () => {
       <div className='chart__header'>
         <button
           id='chart__button'
-          className='chart__header__button--status-enabled'
+          className='chart__header__button--status-enabled chart__header__element'
           onClick={() => {
             if (!isSorting) {
+              setIsSorting(true);
               document.getElementById('chart__button').className =
                 'chart__header__button--status-disabled';
               const sortIndexes = BubbleSort(dataSet); //return array of swaps in order.
               animateSort(sortIndexes);
-              setIsSorting(true);
+            } else {
+              // console.log(
+              //   'Sorry you cannot press this. isSorting is set to: ',
+              //   isSorting
+              // );
             }
           }}
         >
           Sort
         </button>
+        <p className='chart__header__element chart__header__time'>
+          Time take to complete sort: {!isSorting ? `${timeElapsed}s` : null}
+        </p>
       </div>
       <div className='chart__display'>
         {dataSet.map((value) => {

@@ -1,10 +1,27 @@
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ dataRefresh, setDataRefresh, isSorting }) => {
+  const handleDataGeneration = () => {
+    if (!isSorting) {
+      setDataRefresh(!dataRefresh);
+      document.getElementById('chart__button').className =
+        'chart__header__button--status-enabled';
+      for (let i = 1; i <= 100; i++) {
+        document.getElementById(`column-${i}`).className =
+          'bar--status-inactive';
+      }
+    }
+  };
+
   return (
     <header className='header'>
       <ul className='header__element header__dataOptions'>
-        <li className='header__dataOptions__element'>Generate New Array</li>
+        <li
+          className='header__dataOptions__element'
+          onClick={() => handleDataGeneration()}
+        >
+          Generate New Data Set
+        </li>
         <Link to='/comparison' className='header__link'>
           <li className='header__dataOptions__element'>
             Algorithm Comparisons

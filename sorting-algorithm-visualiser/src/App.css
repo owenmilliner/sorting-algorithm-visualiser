@@ -56,6 +56,14 @@ body {
 
 .chart__header {
   background-color: #2d3142;
+  display: grid;
+  grid-template-columns: 650px 65px 650px;
+  grid-template-areas: 'one two three';
+  justify-content: center;
+}
+
+.chart__header__time {
+  grid-area: three;
 }
 
 .chart__header__button--status-enabled {
@@ -65,6 +73,9 @@ body {
   color: #2d3142;
   padding: 10px 20px;
   border-radius: 3px;
+  width: fit-content;
+
+  grid-area: two;
 }
 
 .chart__header__button--status-disabled {
@@ -74,8 +85,11 @@ body {
   color: #2d3142;
   padding: 10px 20px;
   border-radius: 3px;
+  width: fit-content;
   opacity: 0.4;
   cursor: not-allowed;
+
+  grid-area: two;
 }
 
 .chart__header__button--status-enabled:hover {
