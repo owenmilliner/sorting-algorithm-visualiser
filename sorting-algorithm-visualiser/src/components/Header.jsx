@@ -5,6 +5,8 @@ const Header = ({
   setDataRefresh,
   isSorting,
   setCurrentAlgorithm,
+  currentPage,
+  setCurrentPage,
 }) => {
   const handleDataGeneration = () => {
     if (!isSorting) {
@@ -30,18 +32,32 @@ const Header = ({
   return (
     <header className='header'>
       <ul className='header__element header__dataOptions'>
-        <li
-          className='header__dataOptions__element'
-          onClick={() => handleDataGeneration()}
-        >
-          Generate New Data Set
-        </li>
+        {currentPage === 'home' ? (
+          <li
+            className='header__dataOptions__element'
+            onClick={() => handleDataGeneration()}
+          >
+            Generate New Data Set
+          </li>
+        ) : (
+          <Link to='/references' className='header__link'>
+            <li className='header__dataOptions__element'>Reference Material</li>
+          </Link>
+        )}
         <Link to='/summaries' className='header__link'>
-          <li className='header__dataOptions__element'>Algorithm Summaries</li>
+          <li
+            className='header__dataOptions__element'
+            onClick={() => setCurrentPage('summaries')}
+          >
+            Algorithm Summaries
+          </li>
         </Link>
       </ul>
       <Link to='/' className='header__link'>
-        <h1 className='header__element header__text'>
+        <h1
+          className='header__element header__text'
+          onClick={() => setCurrentPage('home')}
+        >
           Sorting Algorithm Visualiser
         </h1>
       </Link>

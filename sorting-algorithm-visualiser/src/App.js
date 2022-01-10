@@ -10,6 +10,7 @@ function App() {
   const [dataRefresh, setDataRefresh] = useState(false);
   const [isSorting, setIsSorting] = useState(false);
   const [currentAlgorithm, setCurrentAlgorithm] = useState('bubble');
+  const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
     const temp = [];
@@ -32,6 +33,8 @@ function App() {
           setDataRefresh={setDataRefresh}
           isSorting={isSorting}
           setCurrentAlgorithm={setCurrentAlgorithm}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
         <Routes>
           <Route

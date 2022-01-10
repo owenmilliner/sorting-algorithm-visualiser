@@ -62,7 +62,11 @@ body {
   justify-content: center;
 }
 
-.chart__header__time {
+/* .chart__header__previous {
+  grid-area: one;
+} */
+
+.chart__header__current {
   grid-area: three;
 }
 

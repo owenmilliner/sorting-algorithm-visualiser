@@ -11,6 +11,7 @@ const Chart = ({
   currentAlgorithm,
 }) => {
   const [timeElapsed, setTimeElapsed] = useState(0);
+  // const [previousTimeElapsed, setPreviousTimeElapsed] = useState(0);
   let key = 0;
   let startTime = 0;
 
@@ -116,8 +117,12 @@ const Chart = ({
         >
           Sort
         </button>
-        <p className='chart__header__element chart__header__time'>
-          Time take to complete sort: {!isSorting ? `${timeElapsed}s` : null}
+        {/* <p className='chart__header__element chart__header__previous '>
+          Previous time taken to complete sort:{' '}
+          {!isSorting ? `${timeElapsed}s` : null}
+        </p> */}
+        <p className='chart__header__element chart__header__current'>
+          Time taken to complete sort: {!isSorting ? `${timeElapsed}s` : null}
         </p>
       </div>
       <div className='chart__display'>
