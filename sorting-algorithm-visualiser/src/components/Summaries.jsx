@@ -18,6 +18,55 @@ const Summaries = () => {
     <div className='summaries'>
       <h2 className='summaries__title'>Bubble Sort</h2>
       <h3 className='summaries__subtitle'>Overview</h3>
+      <p className='summaries__body'>
+        There are many variations of passages of Lorem Ipsum available, but the
+        majority have suffered alteration in some form, by injected humour, or
+        randomised words which don't look even slightly believable. If you are
+        going to use a passage of Lorem Ipsum, you need to be sure there isn't
+        anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+        generators on the Internet tend to repeat predefined chunks as
+        necessary, making this the first true generator on the Internet. It uses
+        a dictionary of over 200 Latin words, combined with a handful of model
+        sentence structures, to generate Lorem Ipsum which looks reasonable. The
+        generated Lorem Ipsum is therefore always free from repetition, injected
+        humour, or non-characteristic words etc. There are many variations of
+        passages of Lorem Ipsum available, but the majority have suffered
+        alteration in some form, by injected humour, or randomised words which
+        don't look even slightly believable. If you are going to use a passage
+        of Lorem Ipsum, you need to be sure there isn't anything embarrassing
+        hidden in the middle of text. All the Lorem Ipsum generators on the
+        Internet tend to repeat predefined chunks as necessary, making this the
+        first true generator on the Internet. It uses a dictionary of over 200
+        Latin words, combined with a handful of model sentence structures, to
+        generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
+        is therefore always free from repetition, injected humour, or
+        non-characteristic words etc. There are many variations of passages of
+        Lorem Ipsum available, but the majority have suffered alteration in some
+        form, by injected humour, or randomised words which don't look even
+        slightly believable. If you are going to use a passage of Lorem Ipsum,
+        you need to be sure there isn't anything embarrassing hidden in the
+        middle of text. All the Lorem Ipsum generators on the Internet tend to
+        repeat predefined chunks as necessary, making this the first true
+        generator on the Internet. It uses a dictionary of over 200 Latin words,
+        combined with a handful of model sentence structures, to generate Lorem
+        Ipsum which looks reasonable. The generated Lorem Ipsum is therefore
+        always free from repetition, injected humour, or non-characteristic
+        words etc. This is just another wall of text. This is just another wall
+        of text. This is just another wall of text.
+      </p>
+      <div className='summaries__graph'></div>
+      <h3 className='summaries__heading'>Big O Notation</h3>
+      <p className='summaries__detail'>
+        There are many variations of passages of Lorem Ipsum available, but the
+        majority have suffered alteration in some form, by injected humour, or
+        randomised words which don't look even slightly believable. If you are
+        going to use a passage of Lorem Ipsum, you need to be sure there isn't
+        anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+        generators on the Internet tend to repeat predefined chunks as
+        necessary, making this the first true generator on the Internet. It uses
+        a dictionary of over 200 Latin words, combined with a handful of model
+        sentence structures, to generate Lorem Ipsum which looks reasonable.
+      </p>
     </div>
   );
 };

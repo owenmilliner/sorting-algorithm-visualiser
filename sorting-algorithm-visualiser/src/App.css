@@ -154,10 +154,11 @@ body {
     'b body heading c'
     'b body detail c'
     'd d d d';
-  grid-template-columns: 0px 813px 513px 0px;
+  grid-template-columns: 0px 820px 520px 0px;
   grid-template-rows: 40px 80px 50px 325px 40px 100px 40px;
   column-gap: 40px;
   overflow: hidden;
+  text-align: left;
 }
 
 .summaries__title {
@@ -169,8 +170,36 @@ body {
 }
 
 .summaries__subtitle {
+  font-size: 30px;
   grid-area: subtitle;
+  margin: 0;
   margin-right: auto;
+}
+
+.summaries__body {
+  font-size: 20px;
+  grid-area: body;
+  margin: 5px auto 0px 0px;
+}
+
+.summaries__graph {
+  background-color: rgba(255, 0, 255, 0.3);
+  border: 1px solid rgba(255, 0, 255, 1);
+  grid-area: graph;
+  width: 100%;
+  height: 100%;
+}
+
+.summaries__heading {
+  grid-area: heading;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.summaries__detail {
+  grid-area: detail;
+  font-size: 20px;
+  margin-top: 0px;
 }
 
 /* END SUMMARIES */
