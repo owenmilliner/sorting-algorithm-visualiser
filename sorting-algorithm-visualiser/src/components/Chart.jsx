@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import Bar from './Bar';
 import BubbleSort from '../algorithms/bubble-sort';
 import QuickSort from '../algorithms/quick-sort';
+import { DataContext } from '../contexts/DataContext';
 
-const Chart = ({
-  dataSet,
-  setDataSet,
-  isSorting,
-  setIsSorting,
-  currentAlgorithm,
-}) => {
+const Chart = () => {
   const [timeElapsed, setTimeElapsed] = useState(0);
+  const { dataSet, setDataSet, isSorting, setIsSorting, currentAlgorithm } =
+    useContext(DataContext);
   // const [previousTimeElapsed, setPreviousTimeElapsed] = useState(0);
+
   let key = 0;
   let startTime = 0;
 

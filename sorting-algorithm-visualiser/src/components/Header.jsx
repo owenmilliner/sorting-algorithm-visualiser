@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
+import { DataContext } from '../contexts/DataContext';
+import { useContext } from 'react';
 
-const Header = ({
-  dataRefresh,
-  setDataRefresh,
-  isSorting,
-  setCurrentAlgorithm,
-  currentPage,
-  setCurrentPage,
-}) => {
+const Header = () => {
+  const {
+    isSorting,
+    setCurrentAlgorithm,
+    dataRefresh,
+    setDataRefresh,
+    currentPage,
+    setCurrentPage,
+  } = useContext(DataContext);
+
   const handleDataGeneration = () => {
     if (!isSorting) {
       setDataRefresh(!dataRefresh);
