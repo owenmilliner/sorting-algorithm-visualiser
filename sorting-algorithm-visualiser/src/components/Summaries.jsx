@@ -14,7 +14,12 @@
         The algorithm will only recognise that the list is in order if it makes no changes in a pass.
 */
 const Summaries = () => {
-  return <p className='summaries__text'>Summaries not yet functional.</p>;
+  return (
+    <div className='summaries'>
+      <h2 className='summaries__title'>Bubble Sort</h2>
+      <h3 className='summaries__subtitle'>Overview</h3>
+    </div>
+  );
 };
 
 export default Summaries;
